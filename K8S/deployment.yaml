@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: landingpage
+  namespace: landingpage
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: landingpage
+  template:
+    metadata:
+      labels:
+        app: landingpage
+    spec:
+      containers:
+      - name: landingpage
+        image: oussamabs/landingpage:latest
+        ports:
+        - containerPort: 80
